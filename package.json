@@ -1,8 +1,8 @@
 {
-  "name": "project-template-react",
+  "name": "project-template-react-redux",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/wwalpha/project-template-react.git",
+  "repository": "https://github.com/wwalpha/project-template-react-redux.git",
   "license": "MIT",
   "scripts": {
     "start": "ts-node configs/server.ts",
