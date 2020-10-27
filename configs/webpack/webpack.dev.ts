@@ -8,6 +8,7 @@ import * as path from 'path';
 
 const dev: Configuration = {
   mode: 'development',
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'development',

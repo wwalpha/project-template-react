@@ -2,11 +2,12 @@ import dev from './dev';
 import prod from './prod';
 
 const store = () => {
-  if (!process.env.ENVIRONMENT) {
-    return dev;
-  }
+  return dev;
+  // if (process.env.ENVIRONMENT) {
+  //   return dev;
+  // }
 
-  return prod;
+  // return prod;
 };
 
 export default store();

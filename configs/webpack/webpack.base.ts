@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Configuration, NoEmitOnErrorsPlugin, LoaderOptionsPlugin, EnvironmentPlugin } from 'webpack';
+import { Configuration, LoaderOptionsPlugin, EnvironmentPlugin } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
@@ -21,9 +21,13 @@ const configs: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)$/,
+        test: /\.(tsx|ts)?$/,
         exclude: /node_modules/,
         use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: { plugins: ['react-refresh/babel'] },
+          },
           {
             loader: 'ts-loader',
             options: {
@@ -35,10 +39,8 @@ const configs: Configuration = {
     ],
   },
   plugins: [
-    // @ts-ignore
     new Dotenv(),
-    // new EnvironmentPlugin([]),
-    new NoEmitOnErrorsPlugin(),
+    new EnvironmentPlugin(['ENVIRONMENT']),
     new LoaderOptionsPlugin({
       debug: false,
     }),
