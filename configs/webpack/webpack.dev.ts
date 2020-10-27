@@ -9,6 +9,7 @@ import * as path from 'path';
 const dev: Configuration = {
   mode: 'development',
   devtool: 'inline-source-map',
+  entry: ['webpack-hot-middleware/client'],
   plugins: [
     new HtmlWebpackPlugin({
       title: 'development',
@@ -20,10 +21,10 @@ const dev: Configuration = {
     }),
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
-    // new CompressionPlugin({
-    //   test: /\.js$/,
-    //   filename: '[path].gz[query]',
-    // }),
+    new CompressionPlugin({
+      test: /\.js$/,
+      filename: '[path].gz[query]',
+    }),
   ],
 };
 

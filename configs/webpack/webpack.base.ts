@@ -5,12 +5,11 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 
 const configs: Configuration = {
-  target: 'web',
-  entry: ['./index.tsx'],
+  entry: ['./src/index.tsx'],
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
-    path: path.resolve(__dirname, '../../build'),
+    path: path.resolve(__dirname, '../../dist'),
     publicPath: './',
   },
   resolve: {
@@ -21,11 +20,11 @@ const configs: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: require.resolve('babel-loader'),
+            loader: 'babel-loader',
             options: { plugins: ['react-refresh/babel'] },
           },
           {

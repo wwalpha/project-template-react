@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import { Actions } from '@actions/app';
 import { State } from '@models';
+import { ClassDefault, ClassNamed, FunctionDefault, FunctionNamed } from '@comp';
 
 const useStyles = makeStyles(({ palette }: Theme) =>
   createStyles({
@@ -23,7 +24,14 @@ const App: FunctionComponent<any> = () => {
   // reducer
   const { count } = useSelector(app);
 
-  return <Box>44444554444</Box>;
+  return (
+    <div>
+      <ClassDefault />
+      <ClassNamed />
+      <FunctionDefault />
+      <FunctionNamed />
+    </div>
+  );
 };
 
 export default App;
