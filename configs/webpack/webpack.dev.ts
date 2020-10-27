@@ -21,10 +21,10 @@ const dev: Configuration = {
     }),
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
-    new CompressionPlugin({
-      test: /\.js$/,
-      filename: '[path].gz[query]',
-    }),
+    // new CompressionPlugin({
+    //   test: /\.js$/,
+    //   filename: '[path].gz[query]',
+    // }),
   ],
 };
 
