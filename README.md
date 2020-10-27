@@ -1,1 +1,1 @@
-# project-template-react
+# project-template-react-redux
