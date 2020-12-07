@@ -1,8 +1,8 @@
 {
-  "name": "project-template-react",
+  "name": "project-template-react-redux",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/wwalpha/project-template-react.git",
+  "repository": "https://github.com/wwalpha/project-template-react-redux.git",
   "license": "MIT",
   "scripts": {
     "start": "ts-node configs/server.ts",
@@ -15,6 +15,7 @@
     "@types/copy-webpack-plugin": "^6.3.0",
     "@types/dotenv-webpack": "^5.0.0",
     "@types/express": "^4.17.9",
+    "@types/history": "^4.7.8",
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -56,18 +57,18 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@types/history": "^4.7.8",
     "axios": "^0.21.0",
     "connected-react-router": "^6.8.0",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-redux": "^7.2.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
     "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "seamless-immutable": "^7.1.4"
   }
 }
