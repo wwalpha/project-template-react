@@ -4,6 +4,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+
 const configs: Configuration = {
   target: 'web',
   entry: ['./index.tsx'],
@@ -11,7 +13,7 @@ const configs: Configuration = {
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../../build'),
-    publicPath: './',
+    publicPath: '/',
   },
   resolve: {
     mainFields: ['browser', 'main', 'module'],
@@ -25,7 +27,7 @@ const configs: Configuration = {
         exclude: /node_modules/,
         use: [
           {
-            loader: require.resolve('babel-loader'),
+            loader: 'babel-loader',
             options: { plugins: ['react-refresh/babel'] },
           },
           {
@@ -39,19 +41,22 @@ const configs: Configuration = {
     ],
   },
   plugins: [
+    new WebpackManifestPlugin({
+      writeToFileEmit: true,
+    }),
     new Dotenv(),
     new EnvironmentPlugin(['ENVIRONMENT']),
     new LoaderOptionsPlugin({
       debug: false,
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: 'public',
-    //       to: '.',
-    //     },
-    //   ],
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public',
+          to: '.',
+        },
+      ],
+    }),
   ],
   optimization: {
     splitChunks: {
