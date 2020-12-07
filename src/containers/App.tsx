@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { bindActionCreators } from 'redux';
-import { useDispatch, useSelector } from 'react-redux';
-import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Actions } from '@actions/app';
-import { State } from '@models';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import Counter from './Counter';
 
 const useStyles = makeStyles(({ palette }: Theme) =>
   createStyles({
@@ -14,16 +11,10 @@ const useStyles = makeStyles(({ palette }: Theme) =>
   })
 );
 
-const app = (state: State) => state.get('app');
-
 const App: FunctionComponent<any> = () => {
   const classes = useStyles();
-  // actions
-  const actions = bindActionCreators(Actions, useDispatch());
-  // reducer
-  const { count } = useSelector(app);
 
-  return <Box>44444554444</Box>;
+  return <Counter />;
 };
 
 export default App;

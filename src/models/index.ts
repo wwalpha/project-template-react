@@ -10,4 +10,4 @@ export interface State extends Map<keyof IState, Record<any>> {
   get<K extends keyof IState>(key: K): IState[K];
 }
 
-export { default as App } from './App';
+export { default as AppState } from './App';

@@ -14,7 +14,7 @@ export interface AppProps extends AppUIProps {
 /**
  * App
  */
-export default class App extends Record<AppProps>({
+export default class AppState extends Record<AppProps>({
   count: 0,
 }) {
   plus(num: number) {
