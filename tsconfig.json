@@ -76,6 +76,6 @@
       }
     ]
   },
-  "include": ["./src/**/*", "index.tsx"],
+  "include": ["./src/**/*"],
   "files": ["./typings/types.d.ts", "./typings/redux-thunk.d.ts"]
 }

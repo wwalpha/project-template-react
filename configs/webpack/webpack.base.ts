@@ -8,7 +8,7 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const configs: Configuration = {
   target: 'web',
-  entry: ['./index.tsx'],
+  entry: ['./src/index.tsx'],
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
