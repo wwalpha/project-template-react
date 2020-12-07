@@ -1,6 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { routerMiddleware } from 'connected-react-router/immutable';
+// immutable.js
+// import { routerMiddleware } from 'connected-react-router/immutable';
+// immer
+import { routerMiddleware } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createBrowserHistory } from 'history';
 import logger from 'redux-logger';

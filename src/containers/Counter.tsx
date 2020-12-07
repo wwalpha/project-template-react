@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Actions } from '@actions/app';
-import { State } from '@models';
+import { State } from '@domains';
 import { Box, Button, createStyles, IconButton, makeStyles, TextField, Theme } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-const app = (state: State) => state.get('app');
+const app = (state: State) => state.app;
 
 const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
