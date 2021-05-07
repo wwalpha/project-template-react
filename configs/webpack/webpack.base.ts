@@ -45,7 +45,6 @@ const configs: Configuration = {
       writeToFileEmit: true,
     }),
     new Dotenv(),
-    new EnvironmentPlugin(['ENVIRONMENT']),
     new LoaderOptionsPlugin({
       debug: false,
     }),
