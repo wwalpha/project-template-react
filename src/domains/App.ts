@@ -5,13 +5,15 @@ export default class AppState {
 
   count: number = 0;
 
-  plus = (num: number) =>
-    produce(this, (draft) => {
+  plus(num: number) {
+    return produce(this, (draft) => {
       draft.count += num;
     });
+  }
 
-  minus = (num: number) =>
-    produce(this, (draft) => {
+  minus(num: number) {
+    return produce(this, (draft) => {
       draft.count -= num;
     });
+  }
 }
