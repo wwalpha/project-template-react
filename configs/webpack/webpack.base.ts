@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Configuration, LoaderOptionsPlugin, EnvironmentPlugin } from 'webpack';
+import { Configuration, LoaderOptionsPlugin } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
