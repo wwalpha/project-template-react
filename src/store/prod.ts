@@ -1,7 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-// immutable.js
-// import { routerMiddleware } from 'connected-react-router/immutable';
 // immer
 import { routerMiddleware } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';

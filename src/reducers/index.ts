@@ -1,5 +1,3 @@
-// import { combineReducers } from 'redux-immutable';
-// import { connectRouter } from 'connected-react-router/immutable';
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { History } from 'history';

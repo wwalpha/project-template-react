@@ -4,10 +4,12 @@ import baseConfig from './webpack.base';
 import CompressionPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
+import Dotenv from 'dotenv-webpack';
 
 const prod: Configuration = {
   mode: 'production',
   plugins: [
+    new Dotenv({ path: 'frontend.env' }),
     new HtmlWebpackPlugin({
       title: 'production',
       filename: 'index.html',

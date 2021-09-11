@@ -28,7 +28,9 @@ const configs: Configuration = {
         use: [
           {
             loader: 'babel-loader',
-            options: { plugins: ['react-refresh/babel'] },
+            options: {
+              plugins: [!process.env.NODE_ENV && require.resolve('react-refresh/babel')].filter(Boolean),
+            },
           },
           {
             loader: 'ts-loader',
