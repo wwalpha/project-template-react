@@ -1,21 +1,25 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-// immer
+import { configureStore } from '@reduxjs/toolkit';
 import { routerMiddleware } from 'connected-react-router';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { createBrowserHistory } from 'history';
 import logger from 'redux-logger';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import reducers from '../reducers';
-import { API } from '@utils';
 
 export const history = createBrowserHistory();
 
-const store = createStore(
-  reducers(history),
-  composeWithDevTools(
-    applyMiddleware(routerMiddleware(history), thunk.withExtraArgument(API), logger)
-    // other store enhancers if any
-  )
+const persistedReducer = persistReducer(
+  {
+    key: 'root',
+    version: 1,
+    storage,
+  },
+  reducers(history)
 );
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware(history)).concat(logger),
+});
 
 export default store;

@@ -47,9 +47,11 @@
       "@comp": ["./src/components/index"],
       "@domains": ["./src/domains/index"],
       "@models": ["./src/models/index"],
-      "@actions/*": ["./src/actions/*"],
+      "@actions": ["./src/actions/index"],
       "@constants": ["./src/constants/index"],
-      "@utils": ["./src/utils/index"]
+      "@utils": ["./src/utils/index"],
+      "@reducers": ["./src/reducers/index"],
+      "@store": ["./src/store/index"]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

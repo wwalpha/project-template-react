@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Actions } from '@actions/app';
-import { State } from '@domains';
-import { Box, Button, createStyles, IconButton, makeStyles, TextField, Theme } from '@material-ui/core';
+import { AppActions } from '@actions';
+import { Box, Button, createStyles, makeStyles, TextField, Theme } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { RootState } from 'typings';
 
-const app = (state: State) => state.app;
+const app = (state: RootState) => state.app;
 
 const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
@@ -23,7 +23,7 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
 const Counter: FunctionComponent<any> = () => {
   const classes = useStyles();
   // actions
-  const actions = bindActionCreators(Actions, useDispatch());
+  const actions = bindActionCreators(AppActions, useDispatch());
   // reducer
   const { count } = useSelector(app);
 

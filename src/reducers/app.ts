@@ -1,21 +1,24 @@
-import { handleActions, Action } from 'redux-actions';
-// import { AppState } from '@models';
-import { AppState } from '@domains';
-import { ActionTypes } from '@constants';
-import { App01Payload, App02Payload } from '@actions/app';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppState } from 'typings';
 
-const app = handleActions<AppState, any>(
-  {
-    [ActionTypes.APP_PLUS_REQUEST]: (state: AppState) => state,
-    [ActionTypes.APP_PLUS_SUCCESS]: (state: AppState, { payload: { num } }: Action<App01Payload>) => state.plus(num),
-    [ActionTypes.APP_PLUS_FAILURE]: (state: AppState) => state,
+const appState: AppState = {
+  count: 0,
+};
 
-    [ActionTypes.APP_MINUS_REQUEST]: (state: AppState) => state,
-    [ActionTypes.APP_MINUS_SUCCESS]: (state: AppState, { payload: { num } }: Action<App02Payload>) => state.minus(num),
-    [ActionTypes.APP_MINUS_FAILURE]: (state: AppState) => state,
+const slice = createSlice({
+  name: 'app',
+  initialState: appState,
+  reducers: {
+    // start loading
+    APP_PLUS: (state, { payload }: PayloadAction<number>) => {
+      state.count += payload;
+    },
+
+    // end loading
+    APP_MINUS: (state, { payload }: PayloadAction<number>) => {
+      state.count -= payload;
+    },
   },
+});
 
-  new AppState()
-);
-
-export default app;
+export default slice;

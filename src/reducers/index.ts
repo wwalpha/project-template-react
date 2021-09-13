@@ -6,5 +6,9 @@ import App from './app';
 export default (history: History<any>) =>
   combineReducers({
     router: connectRouter(history),
-    app: App,
+    app: App.reducer,
   });
+
+export const Actions = {
+  ...App.actions,
+};
